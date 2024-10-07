@@ -1,0 +1,192 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Background Video Texture -->
+    <TextureView
+        android:id="@+id/backgroundTextureView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@android:color/transparent">
+
+        <!-- Greeting TextView -->
+        <TextView
+            android:id="@+id/helloTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello Aman"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"
+            android:shadowColor="@android:color/darker_gray"
+            android:shadowRadius="4.0"
+            android:shadowDx="2.0"
+            android:shadowDy="2.0"/>
+
+
+        <!-- Paging layout with left and right buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="16dp">
+
+            <!-- Left button for navigating to the previous activity -->
+            <ImageView
+                android:id="@+id/leftButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/backarrow"
+                android:layout_marginStart="16dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/button_background"
+                android:elevation="8dp"
+                android:padding="7dp"/>
+
+            <!-- Centered text for Image Generator prompt -->
+            <TextView
+                android:id="@+id/imageGeneratorTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Image Generator"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_marginHorizontal="16dp"/>
+
+            <!-- Right button for navigating to the next activity (rotated by 180 degrees) -->
+            <ImageView
+                android:id="@+id/rightButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/backarrow"
+                android:rotation="180"
+            android:layout_marginEnd="16dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/button_background"
+            android:elevation="8dp"
+            android:padding="7dp"/>
+        </LinearLayout>
+
+
+        <!-- Input Layout for text prompt -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/inputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Edit Text for input -->
+                <EditText
+                    android:id="@+id/editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter text"
+                    android:background="@drawable/edittext_background"
+                    android:padding="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:textColorHint="@color/gray"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"/>
+
+                <!-- Generate Image Button -->
+                <Button
+                    android:id="@+id/generateImageButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Generate Image"
+                    android:textColor="@color/white"
+                    android:background="@drawable/button_background"
+                    android:elevation="6dp"
+                    android:padding="12dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Progress Bar -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            android:indeterminateTint="@android:color/darker_gray"/>
+
+        <!-- Generated Image Display -->
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:contentDescription="Generated Image"
+            android:scaleType="centerCrop"
+            android:layout_margin="16dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/rounded_image_border"
+            android:elevation="8dp"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Download Image Button -->
+        <Button
+            android:id="@+id/downloadButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Download Image"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone"
+            android:background="@drawable/button_background"
+            android:elevation="6dp"
+            android:padding="12dp"/>
+    </LinearLayout>
+
+    <!-- Powered by logo -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:orientation="horizontal"
+        android:layout_marginBottom="12dp"
+        android:gravity="center">
+
+        <!-- Powered by text -->
+        <TextView
+            android:id="@+id/poweredByText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Powered by"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginEnd="4dp"/>
+
+        <!-- Powered by logo -->
+        <ImageView
+            android:id="@+id/poweredByLogo"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:src="@drawable/baselabs"
+            android:contentDescription="Powered by Logo"/>
+    </LinearLayout>
+</FrameLayout>
